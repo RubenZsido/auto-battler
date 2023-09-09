@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052faea7acdf194488bf46916a67f986, type: 3}
+  m_Name: BasicAttack
+  m_EditorClassIdentifier: 
+  parentEntity: {fileID: 0}
+  Name: Basic Atttack
+  Description: 'Start: +10 Meele Damage'
+  Cost: 2
+  Image: {fileID: 21300000, guid: 3ef5aaa3167ad414482868d208139406, type: 3}
+  Rarity: 0
+  Passives: []
+  Activatables:
+  - rid: 4146594834019254289
+  Triggerables: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 4146594834019254289
+      type: {class: ActivatableBase, ns: , asm: Assembly-CSharp}
+      data:
+        action:
+          rid: 4146594834019254290
+        activateAtStart: 1
+        cooldown: 0.5
+    - rid: 4146594834019254290
+      type: {class: BasicAttackAction, ns: , asm: Assembly-CSharp}
+      data:
+        baseDamage: 1
+        energyCost: 0
+        TargetingType: 0
+        canTargetSelf: 0
+        plusStat: 
+        multipliedByStat: 
+        distanceToMove: -0.2
