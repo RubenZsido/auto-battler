@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 
-public class TriggerableEntity : AbilityElementBase
+[Serializable]
+public class TriggerableEntity : TriggerableBase
 {
     [field: SerializeReference]
     public BaseEntityAction action;

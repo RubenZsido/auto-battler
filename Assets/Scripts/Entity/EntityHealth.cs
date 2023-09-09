@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class EntityHealth : EntityComponent
@@ -8,21 +9,24 @@ public class EntityHealth : EntityComponent
     public float shield;
     public float maxShield;
     public bool isAlive = true;
+    public GameObject parryEffect;
+    public GameObject dodgeEffect;
+
     public override void Init(Entity parentEntity)
     {
         base.Init(parentEntity);
-        maxHealth = parentEntity.stats.GetStatValue(StatType.maxHealth);
+        maxHealth = parentEntity.stats.GetStatValue(StatType.MaxHealth);
         health = maxHealth;
-        maxShield = parentEntity.stats.GetStatValue(StatType.maxShield);
+        maxShield = parentEntity.stats.GetStatValue(StatType.MaxShield);
         shield = 0;
         parentEntity.events.statEvents.GetListElement(StatGameEventType.StatChanged).RegisterListener(OnStatChanged);
     }
 
     private void OnStatChanged(StatType statType)
     {
-        if (statType == StatType.maxHealth)
+        if (statType == StatType.MaxHealth)
         {
-            float changeTo = parentEntity.stats.GetStatValue(StatType.maxHealth);
+            float changeTo = parentEntity.stats.GetStatValue(StatType.MaxHealth);
             float difference = changeTo - maxHealth;
             maxHealth = changeTo;
             health += difference;
@@ -36,8 +40,27 @@ public class EntityHealth : EntityComponent
             Messenger.Instance.Log("You hit the corpse of " + parentEntity.gameObject.name);
             return;
         }
+        float dodgeChance = parentEntity.stats.GetStatValue(StatType.DodgeChance);
+        float randomValue = UnityEngine.Random.Range(0, 101);
+        if (randomValue <= dodgeChance)
+        {
+            parentEntity.events.entityEvents.GetListElement(EntityGameEventType.Dodged).Raise(attacker);
+            // dodged animation
+            Instantiate(dodgeEffect);
+            return;
+        }
+        float parryChance = parentEntity.stats.GetStatValue(StatType.DodgeChance);
+        randomValue = UnityEngine.Random.Range(0, 101);
+        if (randomValue <= parryChance)
+        {
+            parentEntity.events.entityEvents.GetListElement(EntityGameEventType.Parried).Raise(attacker);
+            // parried animation
+            Instantiate(parryEffect);
+            return;
+        }
         HitHealth(damage, attacker);
     }
+
     public void HitShield(float damage, Entity attacker)
     {
         shield -= damage;

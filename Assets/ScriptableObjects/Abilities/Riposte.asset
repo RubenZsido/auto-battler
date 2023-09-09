@@ -10,29 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 052faea7acdf194488bf46916a67f986, type: 3}
-  m_Name: BasicAttack
+  m_Name: Riposte
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 0}
-  Name: Basic Atttack
-  Description: 'Attack for 1 damage.\nCooldown: 0.5 second'
-  Cost: 2
-  Image: {fileID: 21300000, guid: 7561058d5e860f8468349a9384c515c3, type: 3}
+  Name: Riposte
+  Description: When you parry an opponent, deal 1 damage to a random enemy
+  Cost: 1
+  Image: {fileID: 21300000, guid: 58dfbcc148f21d341a0ad02ff2ae51d5, type: 3}
   Rarity: 0
   Passives: []
-  Activatables:
-  - rid: 4146594834019254289
-  Triggerables: []
+  Activatables: []
+  Triggerables:
+  - rid: 4146595022169178116
   references:
     version: 2
     RefIds:
-    - rid: 4146594834019254289
-      type: {class: ActivatableBase, ns: , asm: Assembly-CSharp}
+    - rid: 4146595022169178116
+      type: {class: TriggerableEntity, ns: , asm: Assembly-CSharp}
       data:
         action:
-          rid: 4146594834019254290
-        activateAtStart: 1
-        cooldown: 0.5
-    - rid: 4146594834019254290
+          rid: 4146595022169178118
+        eventType: 4
+    - rid: 4146595022169178118
+      type: {class: E_EmptyAction, ns: , asm: Assembly-CSharp}
+      data:
+        action:
+          rid: 4146595022169178119
+    - rid: 4146595022169178119
       type: {class: BasicAttackAction, ns: , asm: Assembly-CSharp}
       data:
         baseDamage: 1
@@ -41,4 +45,4 @@ MonoBehaviour:
         canTargetSelf: 0
         plusStat: 
         multipliedByStat: 
-        distanceToMove: -0.2
+        distanceToMove: 0

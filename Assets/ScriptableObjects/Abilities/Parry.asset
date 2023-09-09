@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 052faea7acdf194488bf46916a67f986, type: 3}
-  m_Name: HealthPassive
+  m_Name: Parry
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 0}
-  Name: Health Symbiote
-  Description: +100 health
-  Cost: 0
-  Image: {fileID: 21300000, guid: ec3732151969b3c46a5498564d221daf, type: 3}
+  Name: Parry
+  Description: +50% chance to parry. Only the highest parry chance is valid.
+  Cost: 1
+  Image: {fileID: 21300000, guid: 059a76bbac227694d88241fdf12ad5f9, type: 3}
   Rarity: 0
   Passives:
-  - rid: 4146595014529515526
+  - rid: 4146595022169178120
   Activatables: []
   Triggerables: []
   references:
     version: 2
     RefIds:
-    - rid: 4146595014529515526
+    - rid: 4146595022169178120
       type: {class: PassiveBase, ns: , asm: Assembly-CSharp}
       data:
         action:
-          rid: 4146595014529515527
-    - rid: 4146595014529515527
+          rid: 4146595022553481219
+    - rid: 4146595022553481219
       type: {class: AddStatModifierAction, ns: , asm: Assembly-CSharp}
       data:
-        statType: 0
-        Flat: 100
+        statType: 4
+        Flat: 50
         PercentAdd: 0
         PercentMult: 0

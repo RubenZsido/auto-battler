@@ -1,15 +1,11 @@
 
 public enum StatType
 {
-    maxHealth = 10,
-    maxShield = 0,
-    speed = 1,
-    damage = 1,
-    dodgeChance = 0,
-    healthDamageReductionFlat = 0,
-    healthDamageReductionPercentage = 0,
-    shieldDamageReductionFlat = 0,
-    damageReductionPercentage = 0
+    MaxHealth,
+    MaxShield,
+    Speed,
+    DodgeChance,
+    ParryChance
 }
 
 public enum Rarity

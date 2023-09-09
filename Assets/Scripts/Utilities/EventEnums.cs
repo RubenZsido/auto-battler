@@ -17,7 +17,8 @@ public enum EntityGameEventType
     Dodged,
     EnemyKilled,
     EntityCreated,
-    AllyDestroyed
+    AllyDestroyed,
+    Parried,
 }
 public enum FloatEntityGameEventType
 {

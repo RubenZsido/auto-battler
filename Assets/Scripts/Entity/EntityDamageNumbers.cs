@@ -8,6 +8,7 @@ public class EntityDamageNumbers : MonoBehaviour
     public Canvas parentCanvas;
     public Color damgaedColor = Color.red;
     public Color healedColor = Color.green;
+    public float randomness;
 
     private void Start()
     {
@@ -18,7 +19,10 @@ public class EntityDamageNumbers : MonoBehaviour
 
     private void OnDamaged(float value, Entity attacker)
     {
-        TMP_Text textClone = Instantiate(textPrefab, parentEntity.transform.position, Quaternion.identity, parentCanvas.transform);
+        Vector3 pos = parentEntity.transform.position;
+        pos += Vector3.up * Random.Range(-randomness, randomness);
+        pos += Vector3.left * Random.Range(-randomness, randomness);
+        TMP_Text textClone = Instantiate(textPrefab, pos, Quaternion.identity, parentCanvas.transform);
         textClone.text = value.ToString();
         textClone.color = damgaedColor;
 
@@ -26,7 +30,7 @@ public class EntityDamageNumbers : MonoBehaviour
     private void OnHealed(float value, Entity attacker)
     {
         TMP_Text textClone = Instantiate(textPrefab, parentEntity.transform.position, Quaternion.identity, parentCanvas.transform);
-        textClone.text = value.ToString();
+        textClone.text = "+" + value.ToString();
         textClone.color = damgaedColor;
     }
 

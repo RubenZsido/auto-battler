@@ -14,7 +14,7 @@ public class HealthBar : MonoBehaviour
     {
         GameObject GO = Instantiate(healthSliderPrefab, parentCanvas.transform);
         healthSlider = GO.GetComponent<Slider>();
-        float maxHealth = parentEntity.stats.GetStatValue(StatType.maxHealth);
+        float maxHealth = parentEntity.stats.GetStatValue(StatType.MaxHealth);
         healthSlider.maxValue = maxHealth;
         healthSlider.value = maxHealth;
         parentEntity.events.floatEvents.GetListElement(FloatGameEventType.HealthChanged).RegisterListener(UpdateHealthBar);
@@ -24,9 +24,9 @@ public class HealthBar : MonoBehaviour
 
     private void OnStatUpdated(StatType statType)
     {
-        if (statType == StatType.maxHealth)
+        if (statType == StatType.MaxHealth)
         {
-            healthSlider.maxValue = parentEntity.stats.GetStatValue(StatType.maxHealth);
+            healthSlider.maxValue = parentEntity.stats.GetStatValue(StatType.MaxHealth);
         }
     }
     private void UpdateHealthBar(float health)

@@ -126,8 +126,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentEntity: {fileID: 0}
   health: 0
+  maxHealth: 0
   shield: 0
+  maxShield: 0
   isAlive: 1
+  parryEffect: {fileID: 2258834702439449933, guid: e7671b5ee52246d4cb3bb2f8ff7612e3, type: 3}
+  dodgeEffect: {fileID: 0}
 --- !u!114 &746834447575769537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +144,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1941089f61cf14fbd2e21a0ce2d62a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: baseValues
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[StatType, Assembly-CSharp],[System.Single,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[StatType, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 4
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: stats
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[StatType, Assembly-CSharp],[Stat,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[StatType, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   parentEntity: {fileID: 0}
 --- !u!114 &746834447575769542
 MonoBehaviour:
@@ -211,5 +300,6 @@ MonoBehaviour:
   parentEntity: {fileID: 746834447575769540}
   textPrefab: {fileID: 1013953844325126206, guid: 4f65c03465de58047ac87c281f892d8e, type: 3}
   parentCanvas: {fileID: 0}
-  damgaedColor: {r: 0, g: 0, b: 0, a: 1}
-  healedColor: {r: 0, g: 0.4433962, b: 0, a: 1}
+  damgaedColor: {r: 1, g: 1, b: 1, a: 1}
+  healedColor: {r: 0.33490568, g: 1, b: 0.33490568, a: 1}
+  randomness: 0.2

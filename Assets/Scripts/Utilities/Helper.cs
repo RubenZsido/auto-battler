@@ -1,6 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public static class Helper
@@ -21,5 +21,16 @@ public static class Helper
             stat.AddStatModifier(new StatModifier(PercentMult, StatModType.PercentMult, source));
         }
     }
-    
+
+    public static List<T> FindAllScriptableObjectsOfType<T>(string filter, string folder = "Assets")
+            where T : ScriptableObject
+    {
+        return AssetDatabase.FindAssets(filter, new[] { folder })
+            .Select(guid => AssetDatabase.LoadAssetAtPath<T>(AssetDatabase.GUIDToAssetPath(guid)))
+            .ToList();
+    }
+
+
+
+
 }
